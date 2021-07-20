@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
+gem 'bcrypt', '~> 3.1.16'
 gem 'kaminari'
 gem 'mongoid', '~> 7.3.1'
 gem 'rails', '~> 6.1.4'

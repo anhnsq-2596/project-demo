@@ -3,6 +3,9 @@ class User
   include Mongoid::Document
   field :email, type: String
   field :name, type: String
+  field :password_digest, type: String
+
+  has_secure_password
 
   before_save :downcase_email
 
@@ -11,6 +14,7 @@ class User
     format: { with: EMAIL_FORMAT }
 
   validates :name, presence: true
+  validates :password, length: { minimum: 6 }
 
   private
     def downcase_email
