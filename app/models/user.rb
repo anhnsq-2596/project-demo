@@ -11,13 +11,11 @@ class User
 
   before_save :downcase_email
 
-  validates :email, presence: true,
-    uniqueness: true,
+  validates :email, presence: true, uniqueness: true,
     format: { with: EMAIL_FORMAT }
 
   validates :name, presence: true
-  validates :password, presence: true,
-    length: { minimum: 6 },
+  validates :password, presence: true, length: { minimum: 6 },
     allow_nil: true
 
   private
