@@ -1,0 +1,63 @@
+// body { background: #df7373 !important; }
+
+.form-container {
+  // background: #ddd;
+
+  background-image: url('big6.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  width: 60%;
+  padding: 50px 30px;
+
+  position: absolute;
+  top: 10%;
+  left: 20%;
+
+  .alert {
+    width: 60%;
+  }
+
+  input {
+    border-radius: 2px;
+    width: 60%;
+    margin: 20px 0;
+    
+    &:last-child {
+      margin: 10px 0;
+    }
+  }
+
+  a {
+    width: 60%;
+  }
+
+  p {
+    position: relative;
+    width: 50%;
+    font-size: 20px;
+    margin: 10px 28%;
+
+    &::before {
+      content: "";
+      height: 0.5em;
+      width: 45%;
+      border-top: 1px solid white;
+      position: absolute;
+      bottom: 25%;
+      left: -50%;
+      right: 0;
+    }
+
+    &::after {
+      content: "";
+      height: 0.5em;
+      width: 45%;
+      border-top: 1px solid white;
+      position: absolute;
+      bottom: 25%;
+      left: 13%;
+      right: 0;
+    }
+  }
+}
