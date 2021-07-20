@@ -11,9 +11,7 @@
   </head>
 
   <body>
-    <% unless %w[/register /login].include? request.env['PATH_INFO'] %>
-      <%= render 'shared/navbar' %>
-    <% end %>
+    <%= render 'shared/navbar' %>
     
     <div class="container">
       <%= yield %>

@@ -16,7 +16,9 @@ class User
     format: { with: EMAIL_FORMAT }
 
   validates :name, presence: true
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true,
+    length: { minimum: 6 },
+    allow_nil: true
 
   private
     def downcase_email
