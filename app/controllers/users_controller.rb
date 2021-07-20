@@ -17,6 +17,9 @@ class UsersController < ApplicationController
   private
     def get_user
       @user = User.find(params[:id])
+      unless @user
+        render_404
+      end
     end
 
     def user_params
@@ -26,5 +29,13 @@ class UsersController < ApplicationController
         :password,
         :password_confirmation
       )
+    end
+
+    def render_404
+      respond_to do |format|
+        format.html { render(file: "#{Rails.root}/public/404", status: :not_found) }
+        format.xml  { head :not_found }
+        format.any  { head :not_found }
+      end
     end
 end
