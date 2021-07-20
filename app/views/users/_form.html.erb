@@ -1,0 +1,18 @@
+<%= form_for @user do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+
+  <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+  
+  <%= f.password_field :password, 
+    class: "form-control",
+    placeholder: "Password" %>
+
+  <%= f.password_field :password_confirmation, 
+    class: "form-control",
+    placeholder: "Confirm Password" %>
+
+  <%= f.submit "Register", class: "btn btn-warning form-control" %>
+
+<% end %>
