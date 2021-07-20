@@ -1,6 +1,8 @@
 class User
   EMAIL_FORMAT = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   include Mongoid::Document
+  include ActiveModel::SecurePassword
+  
   field :email, type: String
   field :name, type: String
   field :password_digest, type: String
@@ -14,7 +16,7 @@ class User
     format: { with: EMAIL_FORMAT }
 
   validates :name, presence: true
-  validates :password, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }
 
   private
     def downcase_email
