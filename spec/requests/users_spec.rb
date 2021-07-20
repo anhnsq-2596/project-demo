@@ -8,13 +8,12 @@ RSpec.describe "Users", type: :request do
   end
   
   describe "POST /users" do
-    subject { post "/users", params: { user: attributes_for(:user) } }
     it "should create new user and render home page" do
-      should redirect_to root_url
       expect{ post "/users", params: {
-        user: attributes_for(:user, email: "newemail@example.com")
+        user: attributes_for(:user)
         }
-      }.to change{ User.count }.from(1).to(2)
+      }.to change{ User.count }.by(1)
+      should redirect_to root_url
     end
   end
 end

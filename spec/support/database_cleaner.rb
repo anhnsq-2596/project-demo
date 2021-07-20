@@ -4,10 +4,6 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with(:deletion)
   end
 
-  # config.before(:each) do
-  #   DatabaseCleaner.strategy = :transaction
-  # end
-
   config.before(:each, :js => true) do
     DatabaseCleaner.strategy = :deletion
   end
@@ -19,5 +15,4 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
 end
