@@ -1,15 +1,10 @@
-// body { background: #df7373 !important; }
-
 .form-container {
-  // background: #ddd;
-
   background-image: url('big6.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 8px;
   width: 60%;
   padding: 30px 30px;
-
   position: absolute;
   top: 15%;
   left: 20%;
@@ -36,7 +31,7 @@
     position: relative;
     width: 50%;
     font-size: 20px;
-    margin: 10px 28%;
+    margin: 1% 28%;
 
     &::before {
       content: "";

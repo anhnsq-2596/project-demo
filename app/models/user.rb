@@ -24,5 +24,4 @@ class User
     def downcase_email
       email.downcase!
     end
-    
 end
