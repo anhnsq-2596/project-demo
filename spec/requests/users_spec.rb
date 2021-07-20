@@ -13,7 +13,7 @@ RSpec.describe "Users", type: :request do
       should redirect_to root_url
       expect{ post "/users", params: {
         user: attributes_for(:user, email: "newemail@example.com")
-        } 
+        }
       }.to change{ User.count }.from(1).to(2)
     end
   end
