@@ -35,7 +35,8 @@ RSpec.describe User, type: :model do
       password: "111111",
       password_confirmation: "111111"
     )
-    expect(user2.save).to be false
+    expect(user2).not_to be_valid
+    user1.destroy
   end
   
   it "should not have invalid email format" do
@@ -88,6 +89,19 @@ RSpec.describe User, type: :model do
     expect(user.save).to be false
   end
 
+  it "should downcase email before saving" do
+    user = User.new(
+      email: "tESt23@example.com",
+      name: "Name",
+      password: "111111",
+      password_confirmation: "111111"
+    )
+    user.save
+    user.reload
+    expect(user.email).to include("test23")
+    user.destroy
+  end
+
   it "should be valid" do
     user = User.new(
       email: "test345@example.com",
@@ -95,7 +109,7 @@ RSpec.describe User, type: :model do
       password: "111111",
       password_confirmation: "111111"
     )
-    expect(user.save).to be true
+    expect(user).to be_valid
   end
 
 end
