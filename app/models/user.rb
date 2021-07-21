@@ -11,17 +11,14 @@ class User
 
   before_save :downcase_email
 
-  validates :email, presence: true, uniqueness: true,
-    format: { with: EMAIL_FORMAT }
+  validates :email, presence: true, uniqueness: true, format: { with: EMAIL_FORMAT }
 
   validates :name, presence: true
-  validates :password, presence: true, length: { minimum: 6 },
-    allow_nil: true
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   def authenticated?(password)
     BCrypt::Password.new(password_digest).is_password?(password)
   end
-  
 
   private
     def downcase_email
