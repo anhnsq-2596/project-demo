@@ -34,5 +34,12 @@ module ProjectDemo
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Config i18n
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+
+    config.i18n.available_locales = [:en, :vi]
+
+    config.i18n.default_locale = :en
   end
 end
