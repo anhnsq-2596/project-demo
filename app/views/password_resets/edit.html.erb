@@ -1,0 +1,16 @@
+<div class="form-container">
+  <h2 class="text-white"><%= t("password_resets.title") %></h2>
+  <%= form_for(@user, url: password_reset_url(params[:id])) do |f| %>
+    <%= hidden_field_tag :email, @user.email %>
+
+    <%= render "shared/error_messages", object: f.object %>
+
+    <%= f.password_field :password, class: "form-control", 
+      placeholder: true %>
+
+    <%= f.password_field :password_confirmation, class: "form-control",
+      placeholder: true %>
+    <%= f.submit t("password_resets.submit"),
+     class: "btn btn-primary form-control" %>
+  <% end %>
+</div>
