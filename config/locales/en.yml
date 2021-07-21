@@ -13,6 +13,8 @@ en:
     title:
       home: Home
       about: About
+      welcome: Welcome
+      profile: Profile
     lang:
       title: Language
       eng: English
@@ -25,3 +27,6 @@ en:
   users:
     new:
       or: Or
+  sessions:
+    login:
+      error: Email or Password is incorrect.

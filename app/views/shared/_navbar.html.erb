@@ -26,14 +26,39 @@
         
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-lg-2">
-        <li class="nav-item">
-          <%= link_to t("commons.login"), "#", 
-           class: "nav-link active" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to t("commons.register"), register_path, 
-            class: "btn btn-outline-warning" %>
-        </li>
+        <% if current_user %>
+          <li class="nav-item ms-3">
+            <div class="dropdown">
+              <a class="btn btn-outline-info" 
+                href="#" 
+                role="button" 
+                id="dropdownMenuLink1" 
+                data-bs-toggle="dropdown" 
+                aria-expanded="false">
+                <%= t("navbar.title.welcome") %>,
+                <%= current_user.name %>
+              </a>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                <li class="dropdown-item">
+                  <%= link_to t("navbar.title.profile"), "#" %>
+                </li>
+                <li class="dropdown-item">
+                  <%= link_to t("commons.logout"), logout_path, method: :delete %>
+                </li>
+              </ul>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+              <%= link_to t("commons.login"), login_path, 
+              class: "nav-link active" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to t("commons.register"), register_path, 
+                class: "btn btn-outline-warning" %>
+            </li>
+        <% end %>
         <li class="nav-item ms-3">
           <div class="dropdown">
             <a class="btn btn-success" 
