@@ -5,7 +5,6 @@ module SessionsHelper
     end
   end
 
-  # Check if user logged in
   def logged_in?
     !current_user.nil?
   end
