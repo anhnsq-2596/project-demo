@@ -3,3 +3,9 @@
 body {
   margin-top: 80px;
 }
+
+.flash-msg {
+  z-index: 1000;
+  width: 400px;
+  margin: 0 auto;
+}

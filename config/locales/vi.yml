@@ -13,6 +13,8 @@ vi:
     title:
       home: Trang chủ
       about: Thông tin
+      welcome: Xin chào
+      profile: Trang cá nhân
     lang:
       title: Ngôn ngữ
       eng: Tiếng Anh
@@ -25,3 +27,6 @@ vi:
   users:
     new:
       or: Hoặc
+  sessions:
+    login:
+      error: Email hoặc Mật khẩu không chính xác.

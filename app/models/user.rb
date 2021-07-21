@@ -18,6 +18,11 @@ class User
   validates :password, presence: true, length: { minimum: 6 },
     allow_nil: true
 
+  def authenticated?(password)
+    BCrypt::Password.new(password_digest).is_password?(password)
+  end
+  
+
   private
     def downcase_email
       email.downcase!

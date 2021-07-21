@@ -8,12 +8,12 @@ RSpec.describe "Users", type: :request do
   end
   
   describe "POST /users" do
-    it "should create new user and render home page" do
+    it "should create new user and render login page" do
       expect{ post "/users", params: {
         user: attributes_for(:user)
         }
       }.to change{ User.count }.by(1)
-      should redirect_to root_url
+      should redirect_to login_url
     end
   end
 end

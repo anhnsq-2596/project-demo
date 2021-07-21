@@ -14,6 +14,11 @@
     <%= render "shared/navbar" %>
     
     <div class="container">
+      <% unless flash.empty? %>
+        <% flash.each do |key, msg| %>
+          <%= content_tag(:div, msg, class: "alert alert-#{key} flash-msg") %>
+        <% end %>
+      <% end %>
       <%= yield %>
     </div>
   </body>

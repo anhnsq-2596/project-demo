@@ -2,5 +2,6 @@
   <h2 class="text-white"><%= t("commons.register") %></h2>
   <%= render "form" %>
   <p class="text-white"><%= t("users.new.or").upcase! %></p>
-  <%= link_to t("commons.login"), "#", class: "btn btn-primary form-control" %>
+  <%= link_to t("commons.login"), login_path,
+    class: "btn btn-primary form-control" %>
 </div>

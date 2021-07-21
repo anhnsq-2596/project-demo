@@ -1,0 +1,11 @@
+<%= form_for(:session, url: login_path) do |f| %>
+
+  <%= f.email_field :email, class: "form-control",
+    placeholder: true, required: true %>
+  
+  <%= f.password_field :password, class: "form-control",
+    placeholder: t("mongoid.attributes.user.password"), required: true %>
+
+  <%= f.submit t("commons.login"), class: "btn btn-primary form-control" %>
+
+<% end %>

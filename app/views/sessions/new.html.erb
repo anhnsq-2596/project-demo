@@ -1,0 +1,7 @@
+<div class="form-container">
+  <h2 class="text-white"><%= t("commons.login") %></h2>
+  <%= render "form", object: current_user %>
+  <p class="text-white"><%= t("users.new.or").upcase! %></p>
+  <%= link_to t("commons.register"), register_path, 
+    class: "btn btn-warning form-control" %>
+</div>
