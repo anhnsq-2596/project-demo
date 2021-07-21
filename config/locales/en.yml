@@ -2,26 +2,26 @@ en:
   mongoid:
     attributes:
       user:
-        name: "Name"
-        password: "Password"
-        password_confirmation: "Confirm Password"
+        name: Name
+        password: Password
+        password_confirmation: Confirm Password
   commons:
-    login: "Login"
-    logout: "Logout"
-    register: "Register"
+    login: Login
+    logout: Logout
+    register: Register
   navbar:
     title:
-      home: "Home"
-      about: "About"
+      home: Home
+      about: About
     lang:
-      title: "Language"
-      eng: "English"
-      vi: "Vietnamese"
+      title: Language
+      eng: English
+      vi: Vietnamese
   static_pages:
     home:
-      cover_text: "This is home page"
+      cover_text: This is home page
     about:
-      cover_text: "This is about page"
+      cover_text: This is about page
   users:
     new:
-      or: "Or"
+      or: Or
