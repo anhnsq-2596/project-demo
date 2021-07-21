@@ -4,4 +4,8 @@
   <p class="text-white"><%= t("users.new.or").upcase! %></p>
   <%= link_to t("commons.register"), register_path, 
     class: "btn btn-warning form-control" %>
+  <div class="nav-link">
+    <%= link_to t("commons.forgot_password"), new_password_reset_path,
+      class: "text-white" %>
+  </div>
 </div>
