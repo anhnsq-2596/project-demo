@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <%= link_to "Sedd", root_path, class: "navbar-brand" %>
+    <%= link_to image_tag("baymax_icon", class: " nav-icon"), 
+      root_path, 
+      class: "navbar-brand" %>
     <button
       class="navbar-toggler"
       type="button"
@@ -14,21 +16,47 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link active" %>
+          <%= link_to t("navbar.title.home"), root_path, 
+            class: "nav-link active" %>
         </li>
         <li class="nav-item">
-          <%= link_to "About", about_path, class: "nav-link" %>
+          <%= link_to t("navbar.title.about"), about_path, 
+           class: "nav-link" %>
         </li>
         
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-lg-2">
         <li class="nav-item">
-          <%= link_to "Login", "#", class: "nav-link active" %>
+          <%= link_to t("commons.login"), "#", 
+           class: "nav-link active" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Register", register_path, 
+          <%= link_to t("commons.register"), register_path, 
             class: "btn btn-outline-warning" %>
         </li>
+        <li class="nav-item ms-3">
+          <div class="dropdown">
+            <a class="btn btn-success" 
+              href="#" 
+              role="button" 
+              id="dropdownMenuLink" 
+              data-bs-toggle="dropdown" 
+              aria-expanded="false">
+              <%= t("navbar.lang.title") %>
+              <%= image_tag "translate" %>
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li class="dropdown-item">
+                <%= link_to t("navbar.lang.eng"), locale: "en" %>
+              </li>
+              <li class="dropdown-item">
+                <%= link_to t("navbar.lang.vi"), locale: "vi" %>
+              </li>
+            </ul>
+          </div>
+        </li>
+        
       </ul>
     </div>
   </div>

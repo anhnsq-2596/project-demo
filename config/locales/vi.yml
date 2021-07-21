@@ -1,0 +1,27 @@
+vi:
+  mongoid:
+    attributes:
+      user:
+        name: "Tên"
+        password: "Mật khẩu"
+        password_confirmation: "Xác nhận mật khẩu"
+  commons:
+    login: "Đăng nhập"
+    logout: "Đăng xuất"
+    register: "Đăng kí"
+  navbar:
+    title:
+      home: "Trang chủ"
+      about: "Thông tin"
+    lang:
+      title: "Ngôn ngữ"
+      eng: "Tiếng Anh"
+      vi: "Tiếng Việt"
+  static_pages:
+    home:
+      cover_text: "Đây là trang chủ"
+    about:
+      cover_text: "Đây là trang thông tin"
+  users:
+    new:
+      or: "Hoặc"
