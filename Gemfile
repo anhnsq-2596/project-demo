@@ -8,7 +8,7 @@ gem "factory_bot_rails"
 gem "kaminari"
 gem "mongoid", "~> 7.3.1"
 gem "rails", "~> 6.1.4"
-gem 'rails-i18n', '~> 6.0.0'
+gem "rails-i18n", "~> 6.0.0"
 gem "puma", "~> 5.0"
 gem "sass-rails", ">= 6"
 gem "webpacker", "~> 5.0"
