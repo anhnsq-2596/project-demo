@@ -44,5 +44,4 @@ RSpec.describe SessionsHelper, type: :helper do
       it { expect(session[:user_id]).to eq("test") }
     end
   end
-  
 end

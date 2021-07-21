@@ -52,6 +52,5 @@ RSpec.describe "Sessions", type: :request do
       it { assert_redirected_to login_url }
       it { expect(session[:user_id]).to be_nil }
     end
-    
   end
 end
