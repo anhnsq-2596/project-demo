@@ -16,8 +16,7 @@ class PostsController < ApplicationController
   def create
     @post = @user.posts.build(post_params)
     if params[:tags] && !params[:tags].empty?
-      tag_ids = params[:tags].map { |id| BSON::ObjectId(id) }
-      (@post.tag_ids << tag_ids).flatten!
+      @post.get_tags params[:tags]
     end
     if @post.save
       redirect_to root_url

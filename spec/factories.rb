@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :tag do
-    code { "test code" }
+    label { "test code" }
   end
 
   factory :user do
@@ -25,15 +25,22 @@ FactoryBot.define do
     factory :user_with_invalid_email, traits: [:invalid_email]
     factory :user_with_too_short_password, traits: [:too_short_password]
     factory :user_with_not_matched_password, traits: [:password_not_match]
-
-    factory :post do
-      content { "this is a test content" }
-    end
   end
 
-  factory :post_tag, parent: :post do |f|
-    f.after_build do |p|
-      p.tags << build(:tag)
-    end
+  factory :post do
+    content { "this is a test content" }
+    user
+  end
+end
+
+def user_with_posts(posts_count: 5)
+  FactoryBot.create(:user) do |user|
+    FactoryBot.create_list(:post, posts_count, user: user)
+  end
+end
+
+def post_with_tags(tags_count: 2)
+  FactoryBot.create(:post) do |post|
+    FactoryBot.create_list(:tag, tags_count, posts: [post])
   end
 end

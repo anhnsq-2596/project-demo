@@ -24,6 +24,7 @@ group :development, :test do
   gem "rubocop", "~> 1.18", require: false
   gem "rubocop-rails"
   gem "rubocop-rspec"
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -37,6 +38,7 @@ group :test do
   gem "shoulda-matchers", "~> 5.0"
   gem "rails-controller-testing"
   gem "database_cleaner-mongoid"
+  gem 'mongoid-rspec'
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

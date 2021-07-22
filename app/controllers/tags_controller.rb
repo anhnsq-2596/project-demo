@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
   include SessionsHelper
   before_action :validate_login, only: [:new, :edit, :create, :update, :destroy]
-  def new 
+  def new
     @tag = Tag.new
   end
 
