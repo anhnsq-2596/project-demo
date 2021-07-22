@@ -7,6 +7,8 @@ class PasswordResetsController < ApplicationController
     @user = User.find_by(email: params[:password_reset][:email])
     if @user
       @user.send_password_reset_mail(params[:locale])
+      cookies.signed[:user_email] = { value: @user.email, 
+        expires: 20.minutes.from_now.utc }
       flash[:success] = t("password_resets.mail.success")
       redirect_to login_url
     else
@@ -24,7 +26,7 @@ class PasswordResetsController < ApplicationController
 
   def update
     if params[:user][:password].blank?
-      @user.errors.add(:password, "can't be empty")
+      @user&.errors.add(:password, "can't be empty")
       render :edit
     elsif @user&.update(user_params)
       flash[:success] = "Password has been reset."
@@ -41,7 +43,6 @@ class PasswordResetsController < ApplicationController
     end
 
     def get_user
-      @user = User.find_by(email: params[:email])
+      @user = User.find_by(email: cookies.signed[:user_email])
     end
-    
 end
