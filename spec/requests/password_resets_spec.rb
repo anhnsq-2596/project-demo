@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "PasswordResets", type: :request do
   describe "GET /new" do
@@ -11,7 +11,7 @@ RSpec.describe "PasswordResets", type: :request do
     context "when email is invalid" do
       before do
         user = create(:user)
-        post("/password_resets", params: { password_reset: {
+        post(password_resets_path, params: { password_reset: {
           email: "asdfa@gmail.com" }})
       end
       it { expect(flash.empty?).to_not be true }
@@ -21,50 +21,128 @@ RSpec.describe "PasswordResets", type: :request do
     context "when email is valid" do
       before do
         user = create(:user)
-        post("/password_resets", params: { password_reset: {
+        post(password_resets_path, params: { password_reset: {
           email: user.email }})
       end
       it { expect(flash.empty?).to_not be true }
       it { should redirect_to login_url }
     end
   end
-  
 
   describe "GET to edit page" do
+    before(:all) { @my_cookies = ActionDispatch::Request.new(
+      Rails.application.env_config.deep_dup).cookie_jar }
     context "when email is invalid" do
-      
+      before do
+        @user = create(:user)
+        @user.create_reset_digest
+        get(edit_password_reset_url(id: @user.reset_token))
+      end
+      it { should redirect_to login_url }
     end
 
-    context "when email is valid" do
-      
+    context "when email cookie is expired" do
+      before do
+        @user = create(:user)
+        @user.create_reset_digest
+        @my_cookies.signed[:user_email] = @user.email
+        cookies[:user_email] = {
+          value: @my_cookies[:user_email],
+          expires: 20.minutes.ago
+        }
+        get(edit_password_reset_url(id: @user.reset_token))
+      end
+      it { should redirect_to login_url }
     end
     
     context "when token is invalid" do
-      
+      before do
+        @user = create(:user)
+        @user.create_reset_digest
+        @my_cookies.signed[:user_email] = @user.email
+        cookies[:user_email] = @my_cookies[:user_email]
+        get(edit_password_reset_url(id: "wrongtoken"))
+      end
+      it { should redirect_to login_url }
     end
 
     context "when token is valid" do
-      
+      before do
+        @user = create(:user)
+        @user.create_reset_digest
+        @my_cookies.signed[:user_email] = @user.email
+        cookies[:user_email] = @my_cookies[:user_email]
+        get(edit_password_reset_url(id: @user.reset_token))
+      end
+      it { should render_template("password_resets/edit") }
     end
   end
   
   describe "PATCH edit password" do
+    before(:all) { @my_cookies = ActionDispatch::Request.new(
+      Rails.application.env_config.deep_dup).cookie_jar }
     context "when email is invalid" do
-      
+      before do
+        @user = create(:user)
+        @pw = @user.password_digest
+        @user.create_reset_digest
+        patch password_reset_url(id: @user.reset_token)
+      end
+
+      it { should render_template("password_resets/edit") }
+      it { expect(@pw).to eql(@user.password_digest) }
     end
 
-    context "when email is valid" do
-      
+    context "when email is expired" do
+      before do
+        @user = create(:user)
+        @pw = @user.password_digest
+        @my_cookies.signed[:user_email] = @user.email
+        cookies[:user_email] = {
+          value: @my_cookies[:user_email],
+          expires: 20.minutes.ago
+        }
+        @user.create_reset_digest
+        patch password_reset_url(id: @user.reset_token)
+      end
+
+      it { should render_template("password_resets/edit") }
+      it { expect(@pw).to eql(@user.password_digest) }
     end
 
     context "when password is invalid" do
-      
+      before do
+        @user = create(:user)
+        @pw = @user.password_digest
+        @user.create_reset_digest
+        @my_cookies.signed[:user_email] = @user.email
+        cookies[:user_email] = @my_cookies[:user_email]
+        patch(password_reset_url(id: @user.reset_token), 
+          params: { user: { password: "12312", 
+            password_confirmation: "12312" }
+          })
+      end
+
+      it { should render_template("password_resets/edit") }
+      it { expect(@pw).to eql(@user.password_digest) }
     end
 
     context "when password is valid" do
-      
-    end
-    
-  end
+      before do
+        @user = create(:user)
+        @pw = @user.password_digest
+        @user.create_reset_digest
+        @my_cookies.signed[:user_email] = @user.email
+        cookies[:user_email] = @my_cookies[:user_email]
+        patch(password_reset_url(id: @user.reset_token), 
+          params: { user: { password: "123123", 
+            password_confirmation: "123123" }
+          })
+      end
 
+      it { should redirect_to login_url }
+      it { expect(flash.empty?).to be false } 
+      it { expect(@pw).not_to eql(@user.reload.password_digest) }
+    end
+  end
 end
