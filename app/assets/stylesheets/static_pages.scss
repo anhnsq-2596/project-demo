@@ -9,3 +9,16 @@
     color: black;
   }
 }
+
+.home-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  .text {
+    font-size: 12px;
+  }
+}

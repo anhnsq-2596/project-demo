@@ -1,0 +1,33 @@
+<div class="card text-white bg-info border-dark mb-3">
+  <div class="card-header d-flex align-items-center flex-wrap">
+    <% unless object.tags.empty? %>
+      <div>
+        <span><b><%= t("commons.tag") %></b>:&nbsp;&nbsp;&nbsp;</span>
+        <% object.tags.each do |tag| %>
+          <span class="badge badge-primary text-dark bg-warning">
+            <%= tag.label %>
+          </span>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="d-flex justify-content-end ms-auto" >
+      <%= link_to t("posts.show.title"), post_path(object),
+      class: "btn btn-dark ms-5" %>
+    </div>
+  </div>
+    
+  <div class="card-body">
+    <p class="card-text text-dark"><%= object.content %></p>
+  </div>
+  <div class="card-footer foot">
+    <span class="card-text text">
+      <em><%= t("posts.create.created_at") %>:</em>
+      <b><%= object.created_at.localtime.strftime("%H:%M:%S - %d/%m/%Y") %></b>
+    </span>
+    &nbsp;&nbsp;&nbsp;
+    <span class="card-text text">
+      <%= t("posts.create.created_by") %>:
+      <b><%= object.user.name %></b>
+    </span>
+  </div>
+</div>

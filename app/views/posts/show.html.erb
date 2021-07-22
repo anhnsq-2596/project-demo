@@ -1,0 +1,29 @@
+<div class="post-show-container">
+  <div class="card text-white bg-info border-dark mb-3">
+    <div class="card-header">
+      <% unless @post.tags.empty? %>
+        <span><b><%= t("commons.tag") %></b>:&nbsp;&nbsp;&nbsp;</span>
+        <% @post.tags.each do |tag| %>
+          <span class="badge badge-primary text-dark bg-warning">
+            <%= tag.label %>
+          </span>
+        <% end %>
+      <% end %>
+    </div>
+      
+    <div class="card-body">
+      <p class="card-text text-dark"><%= @post.content %></p>
+    </div>
+    <div class="card-footer foot">
+      <span class="card-text text">
+        <em><%= t("posts.create.created_at") %>:</em>
+        <b><%= @post.created_at.localtime.strftime("%H:%M:%S - %d/%m/%Y") %></b>
+      </span>
+      &nbsp;&nbsp;&nbsp;
+      <span class="card-text text">
+        <%= t("posts.create.created_by") %>:
+        <b><%= @post.user.name %></b>
+      </span>
+    </div>
+  </div>
+</div>

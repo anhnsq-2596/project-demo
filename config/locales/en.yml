@@ -5,12 +5,35 @@ en:
         name: Name
         password: Password
         password_confirmation: Confirm Password
+      post:
+        content: Content
+      tag:
+        label: Label
   commons:
     login: Login
     logout: Logout
     register: Register
     send: Send
     forgot_password: Forgot password
+    login_required: Please log in first.
+    unauthorized: You don't have permission to do this.
+    tag: Tags
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} found"
+          one: "Displaying <b>1</b> %{entry_name}"
+          other: "Displaying <b>all %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
   navbar:
     title:
       home: Home
@@ -45,3 +68,18 @@ en:
       upper_body: One more step to go
       body: and follow instruction to reset your password.
       link: Click on this link
+  posts:
+    create:
+      title: Create a post
+      btn_text: Create
+      select_tag: Select tag
+      created_at: Created at
+      created_by: By
+    show:
+      title: View
+  tags:
+    create:
+      title: Create a tag
+      btn_text: Create
+      success: "Tag created!"
+

@@ -5,12 +5,35 @@ vi:
         name: Tên
         password: Mật khẩu
         password_confirmation: Xác nhận mật khẩu
+      post:
+        content: Nội dung
+      tag:
+        label: Nhãn
   commons:
     login: Đăng nhập
     logout: Đăng xuất
     register: Đăng kí
     send: Gửi
     forgot_password: Quên mật khẩu
+    login_required: Xin vui lòng đăng nhập.
+    unauthorized: Không thể thực hiện thao tác.
+    tag: Thẻ
+  views:
+    pagination:
+      first: "&laquo; Trang đầu"
+      last: "Trang cuối &raquo;"
+      previous: "&lsaquo; Trước"
+      next: "Tiếp &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Không tìm thấy %{entry_name}"
+          one: "Hiển thị <b>1</b> %{entry_name}"
+          other: "Hiển thị <b>tất cả %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Hiển thị %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> trên tổng cộng <b>%{total}</b>"
   navbar:
     title:
       home: Trang chủ
@@ -45,3 +68,17 @@ vi:
       upper_body: Chỉ còn một bước cuối cùng
       body: và làm theo hướng dẫn để cài đặt lại mật khẩu của bạn.
       link: Click vào đường dẫn
+  posts:
+    create:
+      title: Tạo bài viết mới
+      btn_text: Tạo
+      select_tag: Gắn thẻ
+      created_at: Được tạo lúc
+      created_by: Bởi
+    show:
+      title: Chi tiết
+  tags:
+    create:
+      title: Tạo thẻ mới
+      btn_text: Tạo
+      success: "Thẻ được tạo thành công!"

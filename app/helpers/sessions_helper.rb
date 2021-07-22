@@ -1,7 +1,7 @@
 module SessionsHelper
   def current_user
     if (user_id = session[:user_id])
-      @current_user ||= User.find(user_id)
+      @current_user ||= User.find(user_id) 
     end
   end
 
@@ -13,6 +13,13 @@ module SessionsHelper
     if logged_in?
       session.delete(:user_id)
       @current_user = nil
+    end
+  end
+
+  def validate_login
+    unless logged_in?
+      flash[:danger] = t("commons.login_required")      
+      redirect_to login_url
     end
   end
 end
