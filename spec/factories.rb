@@ -22,9 +22,14 @@ FactoryBot.define do
       password_confirmation { "111112" }
     end
 
+    trait :different_email do
+      email { "myemail2@example.com" }
+    end
+
     factory :user_with_invalid_email, traits: [:invalid_email]
     factory :user_with_too_short_password, traits: [:too_short_password]
     factory :user_with_not_matched_password, traits: [:password_not_match]
+    factory :other_user, traits: [:different_email]
   end
 
   factory :post do
