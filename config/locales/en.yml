@@ -77,6 +77,12 @@ en:
       created_by: By
     show:
       title: View
+    update:
+      fail: Cannot update.
+      success: Successfully updated.
+    delete:
+      fail: Cannot delete.
+      success: Successfully deleted.
   tags:
     create:
       title: Create a tag

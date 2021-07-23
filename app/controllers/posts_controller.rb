@@ -3,9 +3,9 @@ class PostsController < ApplicationController
   before_action :validate_login, only: [:new, :edit, :create, :update, :destroy]
   before_action :get_current_user, only: [:new, :edit, :create, :update]
   before_action :validate_user, only: [:edit, :update, :destroy]
+  before_action :get_post, only: [:edit, :show, :destroy]
   
   def show
-    @post = Post.find(BSON::ObjectId(params[:id]))
   end
 
   def new
@@ -29,6 +29,16 @@ class PostsController < ApplicationController
   def edit
   end
 
+  def destroy
+    if @post.destroy
+      flash[:success] = t("posts.delete.success")
+      redirect_to root_url
+    else
+      flash[:danger] = t("posts.delete.fail")
+      redirect_to root_url
+    end
+  end
+
   private
     def post_params
       params.require(:post).permit(:content)
@@ -40,8 +50,12 @@ class PostsController < ApplicationController
 
     def validate_login
       unless logged_in?
-        flash[:danger] = t("commons.login_required")      
+        flash[:danger] = t("commons.login_required")
         redirect_to login_url
       end
+    end
+
+    def get_post
+      @post = Post.find(params[:id])
     end
 end
