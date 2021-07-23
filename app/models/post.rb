@@ -15,8 +15,4 @@ class Post
   def local_created_at
     created_at.localtime.strftime("%H:%M:%S - %d/%m/%Y")
   end
-  
-  def local_created_at
-    created_at.localtime.strftime("%H:%M:%S - %d/%m/%Y")
-  end
 end

@@ -9,9 +9,9 @@ RSpec.describe Post, type: :model do
     it { is_expected.to belong_to(:user) }
   end
   
-  describe "#get_tags" do
-    before { @post = build(:post) }
-    subject { ["60f7a3ec32dbbabcab7f7cd2"] }
-    it { expect{ @post.get_tags subject }.to change{ @post.tag_ids } }
+  describe "#local_created_at" do
+    subject { create(:post) }
+    it { expect(subject.local_created_at).to be 
+      eq(subject.created_at.localtime.strftime("%H:%M:%S - %d/%m/%Y")) }
   end
 end

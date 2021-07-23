@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :tag do
-    label { "test code" }
+    sequence(:label) { |n| "testest #{n}" }
   end
 
   factory :user do
