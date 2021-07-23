@@ -5,7 +5,7 @@ module PostsHelper
 
   def tags_for(post)
     if post && !post.tags.empty?
-      Tag.where(id: { "$nin" => @post.tag_ids })
+      Tag.where(:id.nin => @post.tag_ids)
     else
       Tag.all
     end

@@ -71,5 +71,9 @@ class PostsController < ApplicationController
 
     def get_post
       @post = Post.find(params[:id])
+      unless @post
+        flash[:danger] = t("posts.not_found")
+        redirect_to root_url
+      end
     end
 end

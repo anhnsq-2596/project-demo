@@ -69,6 +69,7 @@ vi:
       body: và làm theo hướng dẫn để cài đặt lại mật khẩu của bạn.
       link: Click vào đường dẫn
   posts:
+    not_found: Không tìm thấy bài viết.
     create:
       title: Tạo bài viết mới
       btn_text: Tạo

@@ -69,6 +69,7 @@ en:
       body: and follow instruction to reset your password.
       link: Click on this link
   posts:
+    not_found: Post not found.
     create:
       title: Create a post
       btn_text: Create
