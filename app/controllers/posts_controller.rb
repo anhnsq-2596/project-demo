@@ -1,32 +1,46 @@
 class PostsController < ApplicationController
   include SessionsHelper
+  include PostsHelper
   before_action :validate_login, only: [:new, :edit, :create, :update, :destroy]
   before_action :get_current_user, only: [:new, :edit, :create, :update]
+  before_action :get_post, only: [:edit, :update, :show, :destroy]
   before_action :validate_user, only: [:edit, :update, :destroy]
-  before_action :get_post, only: [:edit, :show, :destroy]
   
   def show
   end
 
   def new
     @post = Post.new
-    @tags = Tag.all
+    @tags = tags_for(nil)
   end
 
   def create
     @post = @user.posts.build(post_params)
-    if params[:tags] && !params[:tags].empty?
-      @post.get_tags params[:tags]
-    end
+    @post.tags = get_tags(params[:tags]) if tags_available?
+    
     if @post.save
       redirect_to root_url
     else
-      @tags = Tag.all
+      @tags = tags_for(nil)
       render :new
     end
   end
   
   def edit
+    @tags = tags_for(@post)
+  end
+
+  def update
+    if @post.update(post_params)
+      @post.tags << get_tags(params[:tags]) if tags_available?
+      @post.update_attribute(:tag_ids, @post.tag_ids)
+      
+      flash[:success] = t("posts.update.success")
+      redirect_to post_path(@post)
+    else
+      @tags = tags_for(@post)
+      render :edit
+    end
   end
 
   def destroy
@@ -39,6 +53,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def validate_user
+    unless authorized_with?(@post.user)
+      flash[:danger] = t("commons.unauthorized")
+      redirect_to root_url
+    end
+  end
+
   private
     def post_params
       params.require(:post).permit(:content)
@@ -46,13 +67,6 @@ class PostsController < ApplicationController
 
     def get_current_user
       @user = current_user
-    end
-
-    def validate_login
-      unless logged_in?
-        flash[:danger] = t("commons.login_required")
-        redirect_to login_url
-      end
     end
 
     def get_post

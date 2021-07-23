@@ -1,2 +1,12 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<div class="create-form-container">
+  <h2 class=""><%= t("posts.update.title") %></h2>
+  <% unless @post.tags.empty? %>
+    <span><b><%= t("commons.tag") %></b>:&nbsp;&nbsp;&nbsp;</span>
+    <% @post.tags.each do |tag| %>
+      <span class="badge badge-primary text-dark bg-warning">
+        <%= tag.label %>
+      </span>
+    <% end %>
+  <% end %>
+  <%= render "form", btn_text: t("posts.update.title") %>
+</div>

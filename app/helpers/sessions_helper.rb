@@ -22,4 +22,8 @@ module SessionsHelper
       redirect_to login_url
     end
   end
+
+  def authorized_with?(user)
+    current_user == user
+  end
 end

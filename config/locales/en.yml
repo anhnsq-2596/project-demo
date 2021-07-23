@@ -78,9 +78,11 @@ en:
     show:
       title: View
     update:
+      title: Update
       fail: Cannot update.
       success: Successfully updated.
     delete:
+      title: Delete
       fail: Cannot delete.
       success: Successfully deleted.
   tags:
@@ -88,4 +90,3 @@ en:
       title: Create a tag
       btn_text: Create
       success: "Tag created!"
-

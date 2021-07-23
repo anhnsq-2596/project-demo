@@ -77,6 +77,14 @@ vi:
       created_by: Bởi
     show:
       title: Chi tiết
+    update:
+      title: Cập nhật
+      fail: Không thể cập nhật.
+      success: Cập nhật thành công.
+    delete:
+      title: Xóa
+      fail: Không thể xóa.
+      success: Xóa thành công.
   tags:
     create:
       title: Tạo thẻ mới

@@ -11,9 +11,4 @@ class Post
   has_and_belongs_to_many :tags
 
   validates :content, presence: true, length: { maximum: 250 }
-
-  def get_tags(tag_ids_arr)
-    valid_ids = tag_ids_arr.map { |id| BSON::ObjectId(id) }
-    (tag_ids << valid_ids).flatten!
-  end
 end
