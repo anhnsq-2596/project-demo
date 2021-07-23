@@ -25,3 +25,8 @@
     height: 200px;
   }
 }
+
+.card-header,
+.card-body {
+  background: $light-blue !important;
+}
