@@ -16,4 +16,8 @@ class Post
     valid_ids = tag_ids_arr.map { |id| BSON::ObjectId(id) }
     (tag_ids << valid_ids).flatten!
   end
+  
+  def local_created_at
+    created_at.localtime.strftime("%H:%M:%S - %d/%m/%Y")
+  end
 end

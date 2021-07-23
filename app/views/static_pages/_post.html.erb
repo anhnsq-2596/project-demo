@@ -22,7 +22,7 @@
   <div class="card-footer foot">
     <span class="card-text text">
       <em><%= t("posts.create.created_at") %>:</em>
-      <b><%= object.created_at.localtime.strftime("%H:%M:%S - %d/%m/%Y") %></b>
+      <b><%= object.local_created_at %></b>
     </span>
     &nbsp;&nbsp;&nbsp;
     <span class="card-text text">
