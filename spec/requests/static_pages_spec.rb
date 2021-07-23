@@ -1,5 +1,5 @@
 require "rails_helper"
-require 'dotenv'
+require "dotenv"
 
 RSpec.describe "StaticPages", type: :request do
   describe "GET /" do
@@ -22,7 +22,7 @@ RSpec.describe "StaticPages", type: :request do
 
     context "when paginated" do
       before do
-        @per_page = ENV['DEFAULT_RECORD_PER_PAGE'].to_i
+        @per_page = ENV["DEFAULT_RECORD_PER_PAGE"].to_i
         user = create(:user)
         create_list(:post, @per_page + 1, user: user)
         get root_path

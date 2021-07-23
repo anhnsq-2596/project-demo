@@ -1,10 +1,10 @@
-require 'dotenv'
+require "dotenv"
 
 class Post
   include Mongoid::Document
   include Mongoid::Timestamps
   
-  paginates_per ENV['DEFAULT_RECORD_PER_PAGE'].to_i
+  paginates_per ENV["DEFAULT_RECORD_PER_PAGE"].to_i
 
   field :content, type: String
   belongs_to :user
