@@ -12,9 +12,8 @@ class Post
 
   validates :content, presence: true, length: { maximum: 250 }
 
-  def get_tags(tag_ids_arr)
-    valid_ids = tag_ids_arr.map { |id| BSON::ObjectId(id) }
-    (tag_ids << valid_ids).flatten!
+  def local_created_at
+    created_at.localtime.strftime("%H:%M:%S - %d/%m/%Y")
   end
   
   def local_created_at

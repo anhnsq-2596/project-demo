@@ -69,6 +69,7 @@ vi:
       body: và làm theo hướng dẫn để cài đặt lại mật khẩu của bạn.
       link: Click vào đường dẫn
   posts:
+    not_found: Không tìm thấy bài viết.
     create:
       title: Tạo bài viết mới
       btn_text: Tạo
@@ -77,6 +78,15 @@ vi:
       created_by: Bởi
     show:
       title: Chi tiết
+    update:
+      title: Cập nhật
+      fail: Không thể cập nhật.
+      success: Cập nhật thành công.
+    delete:
+      title: Xóa
+      fail: Không thể xóa.
+      success: Xóa thành công.
+      confirm: Bạn có chắc không?
   tags:
     create:
       title: Tạo thẻ mới

@@ -1,13 +1,21 @@
 <div class="post-show-container">
   <div class="card text-white bg-info border-dark mb-3">
-    <div class="card-header">
+    <div class="card-header d-flex align-items-center flex-wrap">
       <% unless @post.tags.empty? %>
         <span><b><%= t("commons.tag") %></b>:&nbsp;&nbsp;&nbsp;</span>
         <% @post.tags.each do |tag| %>
-          <span class="badge badge-primary text-dark bg-warning">
+          <span class="badge badge-primary text-dark bg-warning me-1">
             <%= tag.label %>
           </span>
         <% end %>
+      <% end %>
+      <% if authorized_with?(@post.user) %>
+        <div class="d-flex justify-content-end ms-auto">
+          <%= link_to t("posts.update.title"), edit_post_path,
+            class: "btn btn-warning" %>
+          <%= link_to t("posts.delete.title"), post_path(@post), method: :delete,
+            class: "btn btn-danger ms-2", data: { confirm: t("posts.delete.confirm") } %>
+        </div>
       <% end %>
     </div>
       

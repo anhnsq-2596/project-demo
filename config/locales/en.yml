@@ -69,6 +69,7 @@ en:
       body: and follow instruction to reset your password.
       link: Click on this link
   posts:
+    not_found: Post not found.
     create:
       title: Create a post
       btn_text: Create
@@ -77,9 +78,17 @@ en:
       created_by: By
     show:
       title: View
+    update:
+      title: Update
+      fail: Cannot update.
+      success: Successfully updated.
+    delete:
+      title: Delete
+      fail: Cannot delete.
+      success: Successfully deleted.
+      confirm: Are you sure?
   tags:
     create:
       title: Create a tag
       btn_text: Create
       success: "Tag created!"
-
