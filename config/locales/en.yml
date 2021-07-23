@@ -9,6 +9,8 @@ en:
     login: Login
     logout: Logout
     register: Register
+    send: Send
+    forgot_password: Forgot password
   navbar:
     title:
       home: Home
@@ -30,3 +32,16 @@ en:
   sessions:
     login:
       error: Email or Password is incorrect.
+  password_resets:
+    title: Reset Password
+    submit: Submit
+    success: Password has been reset.
+    invalid: An error occured.
+    mail:
+      success: Successfully Sent!
+      invalid: Email is invalid.
+      subject: Password Reset
+      header: "Hi, ${name}"
+      upper_body: One more step to go
+      body: and follow instruction to reset your password.
+      link: Click on this link

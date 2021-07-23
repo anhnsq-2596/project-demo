@@ -9,6 +9,8 @@ vi:
     login: Đăng nhập
     logout: Đăng xuất
     register: Đăng kí
+    send: Gửi
+    forgot_password: Quên mật khẩu
   navbar:
     title:
       home: Trang chủ
@@ -30,3 +32,16 @@ vi:
   sessions:
     login:
       error: Email hoặc Mật khẩu không chính xác.
+  password_resets:
+    title: Đổi mật khẩu
+    submit: Xác nhận
+    success: Mật khẩu đã được thay đổi!
+    invalid: Có lỗi xảy ra.
+    mail:
+      success: Email đã được gửi!
+      invalid: Email không hợp lệ.
+      subject: Quên mật khẩu
+      header: "Xin chào, ${name}"
+      upper_body: Chỉ còn một bước cuối cùng
+      body: và làm theo hướng dẫn để cài đặt lại mật khẩu của bạn.
+      link: Click vào đường dẫn

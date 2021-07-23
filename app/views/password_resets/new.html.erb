@@ -1,0 +1,10 @@
+<div class="form-container-reset">
+  <h2 class="text-white"><%= t("password_resets.title") %></h2>
+  <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+
+  <%= f.email_field :email, class: "form-control",
+    placeholder: true, required: true %>
+
+  <%= f.submit t("commons.send"), class: "btn btn-primary form-control" %>
+  <% end %>
+</div>

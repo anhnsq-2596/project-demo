@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "sessions/new"
   scope "(:locale)", locale: /en|vi/ do
     get "/about", to: "static_pages#about"
     get "/register", to: "users#new"
@@ -7,7 +6,7 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
     resources :users
-  
+    resources :password_resets
     root "static_pages#home"
   end
 end
