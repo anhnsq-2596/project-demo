@@ -1,14 +1,11 @@
+@import 'variables';
+
 .create-form-container {
   width: 50%;
   margin: 10px auto;
-  background: #3399ff;
-  padding: 20px 25px;
-  border-radius: 7px;.create-form-container {
-  width: 50%;
-  margin: 10px auto;
-  background: #3399ff;
   padding: 20px 25px;
   border-radius: 7px;
+  background: $new-info;
   textarea {
     height: 200px;
   }
@@ -24,7 +21,6 @@
   width: 50%;
   margin: 0 auto;
   margin-top: 200px;
-}
   textarea {
     height: 200px;
   }
@@ -34,10 +30,4 @@
       margin-top: 20px;
     }
   }
-}
-
-.post-show-container {
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 200px;
 }

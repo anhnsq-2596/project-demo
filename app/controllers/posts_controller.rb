@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :validate_user, only: [:edit, :update, :destroy]
   
   def show
-    @post = Post.find(BSON::ObjectId(params[:id]))
+    @post = Post.find(params[:id])
   end
 
   def new
