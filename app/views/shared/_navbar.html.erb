@@ -73,10 +73,10 @@
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <li class="dropdown-item">
-                <%= link_to t("navbar.lang.eng"), locale: "en" %>
+                <%= link_to t("navbar.lang.eng"), request.parameters.merge({locale: :en}) %>
               </li>
               <li class="dropdown-item">
-                <%= link_to t("navbar.lang.vi"), locale: "vi" %>
+                <%= link_to t("navbar.lang.vi"), request.parameters.merge({locale: :vi}) %>
               </li>
             </ul>
           </div>

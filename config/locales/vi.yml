@@ -35,7 +35,7 @@ vi:
   password_resets:
     title: Đổi mật khẩu
     submit: Xác nhận
-    success: Mật khẩu đã được đổi!
+    success: Mật khẩu đã được thay đổi!
     invalid: Có lỗi xảy ra.
     mail:
       success: Email đã được gửi!

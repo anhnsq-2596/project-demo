@@ -35,7 +35,7 @@ en:
   password_resets:
     title: Reset Password
     submit: Submit
-    success: Password changed!
+    success: Password has been reset.
     invalid: An error occured.
     mail:
       success: Successfully Sent!
