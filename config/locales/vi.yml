@@ -86,6 +86,7 @@ vi:
       title: Xóa
       fail: Không thể xóa.
       success: Xóa thành công.
+      confirm: Bạn có chắc không?
   tags:
     create:
       title: Tạo thẻ mới

@@ -14,7 +14,7 @@
           <%= link_to t("posts.update.title"), edit_post_path,
             class: "btn btn-warning me-3" %>
           <%= link_to t("posts.delete.title"), post_path(@post), method: :delete,
-            class: "btn btn-danger" %>
+            class: "btn btn-danger", data: { confirm: t("posts.delete.confirm") } %>
         </div>
       <% end %>
     </div>

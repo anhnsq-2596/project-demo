@@ -86,6 +86,7 @@ en:
       title: Delete
       fail: Cannot delete.
       success: Successfully deleted.
+      confirm: Are you sure?
   tags:
     create:
       title: Create a tag
