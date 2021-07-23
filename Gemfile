@@ -6,6 +6,8 @@ ruby "3.0.0"
 gem "bcrypt", "~> 3.1.16"
 gem "factory_bot_rails"
 gem "kaminari"
+gem "kaminari-mongoid"
+gem "bootstrap4-kaminari-views"
 gem "mongoid", "~> 7.3.1"
 gem "rails", "~> 6.1.4"
 gem "rails-i18n", "~> 6.0.0"
@@ -22,6 +24,7 @@ group :development, :test do
   gem "rubocop", "~> 1.18", require: false
   gem "rubocop-rails"
   gem "rubocop-rspec"
+  gem "dotenv-rails"
 end
 
 group :development do
@@ -35,6 +38,7 @@ group :test do
   gem "shoulda-matchers", "~> 5.0"
   gem "rails-controller-testing"
   gem "database_cleaner-mongoid"
+  gem "mongoid-rspec"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

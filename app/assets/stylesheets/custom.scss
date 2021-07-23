@@ -1,7 +1,10 @@
+@import 'variables';
+$info: $new_info;
 @import "bootstrap/scss/bootstrap";
 
 body {
   margin-top: 80px;
+  background: $bg-main;
 }
 
 .flash-msg {

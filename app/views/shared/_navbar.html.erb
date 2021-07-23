@@ -23,6 +23,14 @@
           <%= link_to t("navbar.title.about"), about_path, 
            class: "nav-link" %>
         </li>
+        <li class="nav-item ms-5 me-3">
+          <%= link_to t("posts.create.title"), new_post_path, 
+           class: "btn btn-primary" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t("tags.create.title"), new_tag_path,
+           class: "btn btn-primary" %>
+        </li>
         
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-lg-2">

@@ -1,0 +1,9 @@
+<%= form_for @tag do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.text_field :label, class: "form-control",
+    placeholder: true %>
+
+  <%= f.submit t("tags.create.btn_text"), class: "btn btn-dark form-control" %>
+
+<% end %>

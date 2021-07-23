@@ -1,1 +1,10 @@
-<h2><%= t("static_pages.home.cover_text") %></h2>
+<div class="home-container">
+  <% unless @posts.empty? %>
+    <% @posts.each do |post| %>
+      <%= render 'static_pages/post', object: post %>
+    <% end %>
+  <% else %>
+    <h1>There is no post!</h1>
+  <% end %>
+  <%= paginate @posts, theme: 'twitter-bootstrap-4' %>
+</div>
