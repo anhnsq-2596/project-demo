@@ -6,6 +6,7 @@ vi:
         password: Mật khẩu
         password_confirmation: Xác nhận mật khẩu
       post:
+        title: Tiêu đề
         content: Nội dung
       tag:
         label: Nhãn
