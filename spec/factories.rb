@@ -33,8 +33,17 @@ FactoryBot.define do
   end
 
   factory :post do
+    title { "test title" }
     content { "this is a test content" }
+
+    trait :more_words do
+      content { "this is a test content with more than 10 words to test the 
+        short description. Thanks for watching." }
+    end
+
     user
+
+    factory :post_with_long_content, traits: [:more_words]
   end
 end
 
