@@ -165,6 +165,7 @@ test:
   options:
     raise_not_found_error: false
 production:
-  sessions:
+  clients:
     default:
-      uri: <%= ENV['MONGO_ATLAS_URI'] %>
+      default:
+        uri: "<%= ENV['MONGO_ATLAS_URI'] %>"
