@@ -3,23 +3,23 @@
    <div class="tag-container">
      <h5><%= t("commons.tag") %></h5>
      <% @tags.each do |tag| %>
-       <%= render 'tag', object: tag %>
+       <%= render "tag", object: tag %>
      <% end %>
    </div>
  </div>
  <div class="col-md-9">
    <div class="home-container">
     <div class="mb-5">
-      <%= render 'search_form' %>
+      <%= render "search_form" %>
     </div>
      <% unless @posts.empty? %>
        <% @posts.each do |post| %>
-         <%= render 'static_pages/post', object: post %>
+         <%= render "static_pages/post", object: post %>
        <% end %>
      <% else %>
        <h1><%= t("posts.not_found") %></h1>
      <% end %>
-     <%= paginate @posts, theme: 'twitter-bootstrap-4' %>
+     <%= paginate @posts, theme: "twitter-bootstrap-4" %>
    </div>
  </div>
 </div>
