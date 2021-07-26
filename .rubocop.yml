@@ -13,6 +13,7 @@ AllCops:
   # Include common Ruby source files.
   Include:
     - '**/*.rb'
+    - '**/*.erb'
     - '**/*.arb'
     - '**/*.axlsx'
     - '**/*.builder'

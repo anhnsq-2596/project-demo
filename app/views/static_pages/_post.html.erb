@@ -1,26 +1,24 @@
-<div class="card text-dark bg-info border-dark mb-3">
+<div class="card text-white bg-dark mb-3">
   <div class="card-header d-flex align-items-center flex-wrap">
     <% unless object.tags.empty? %>
       <div>
         <span><b><%= t("commons.tag") %></b>:&nbsp;&nbsp;&nbsp;</span>
         <% object.tags.each do |tag| %>
-          <span class="badge badge-primary text-dark bg-warning">
-            <%= tag.label %>
-          </span>
+          <%= render "static_pages/tag", object: tag %>
         <% end %>
       </div>
     <% end %>
     <div class="d-flex justify-content-end ms-auto" >
       <%= link_to t("posts.show.title"), post_path(object),
-      class: "btn btn-dark ms-5" %>
+      class: "btn btn-primary text-white ms-5" %>
     </div>
   </div>
     
   <div class="card-body">
     <h5 class="card-title"><%= object.title %></h5>
-    <p class="card-text text-dark"><%= object.description %></p>
+    <p class="card-text"><%= object.description %></p>
   </div>
-  <div class="card-footer foot">
+  <div class="card-footer foot text-white bg-dark">
     <span class="card-text text">
       <em><%= t("posts.create.created_at") %>:</em>
       <b><%= object.local_created_at %></b>

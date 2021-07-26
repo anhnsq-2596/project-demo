@@ -1,5 +1,5 @@
 <div class="post-show-container">
-  <div class="card text-dark bg-info border-dark mb-3">
+  <div class="card text-white bg-dark mb-3">
     <div class="card-header d-flex align-items-center flex-wrap">
       <% unless @post.tags.empty? %>
         <span><b><%= t("commons.tag") %></b>:&nbsp;&nbsp;&nbsp;</span>
@@ -21,7 +21,7 @@
       
     <div class="card-body">
       <h5 class="card-title"><%= @post.title %></h5>
-      <p class="card-text text-dark"><%= @post.content %></p>
+      <p class="card-text"><%= @post.content %></p>
     </div>
     <div class="card-footer foot">
       <span class="card-text text">

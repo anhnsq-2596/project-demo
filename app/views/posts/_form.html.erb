@@ -8,7 +8,7 @@
     placeholder: true %>
 
   <%= select_tag "tags", options_from_collection_for_select(
-    @tags, 'id', 'label', '1'), multiple: true, 
+    @tags, "id", "label", "1"), multiple: true, 
     prompt: "---#{t("posts.create.select_tag")}---", class: "form-select" %>
 
   <%= f.submit btn_text, class: "btn btn-dark form-control" %>
