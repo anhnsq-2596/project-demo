@@ -26,11 +26,12 @@
 <script>
   $(document).ready(function() {
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('search')) {
-      $('#search_search').val(urlParams.get('search'));
-      $('#search_search').focus();
+    if (urlParams.get("search")) {
+      $("#search_search").val(urlParams.get("search"));
+      $("#search_search").focus();
     }
-    tag_clicked = $(`a:contains(${urlParams.get('filter')})`);
-    tag_clicked.addClass('bg-dark text-white');
+    tag_clicked = $(`a:contains(${urlParams.get("filter")})`);
+    tag_clicked.removeClass("bg-warning");
+    tag_clicked.addClass("bg-primary text-white");
   })
 </script>
