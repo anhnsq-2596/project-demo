@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
-    @posts = Post.order_by(created_at: :desc).all.page(params[:page])
+    @posts = Post.search(params[:search]).desc_order_by_created_at.page(
+      params[:page])
   end
 
   def about

@@ -48,6 +48,8 @@ en:
   static_pages:
     home:
       cover_text: This is home page
+      search: Search
+      search_placeholder: Search by title, content...
     about:
       cover_text: This is about page
   users:

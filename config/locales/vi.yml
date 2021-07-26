@@ -48,6 +48,8 @@ vi:
   static_pages:
     home:
       cover_text: Đây là trang chủ
+      search: Tìm kiếm
+      search_placeholder: Tìm kiếm theo tiêu đề, nội dung...
     about:
       cover_text: Đây là trang thông tin
   users:

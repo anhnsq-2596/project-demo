@@ -37,7 +37,7 @@ FactoryBot.define do
     content { "this is a test content" }
 
     trait :more_words do
-      content { "this is a test content with more than 10 words to test the 
+      content { "hello welcome with more than 10 words to test the 
         short description. Thanks for watching." }
     end
 

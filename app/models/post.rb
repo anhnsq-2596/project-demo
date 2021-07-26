@@ -23,4 +23,8 @@ class Post
     words = content.split
     words.size > 10 ? words[...10].join(" ") << "..." : content
   end
+
+  scope :desc_order_by_created_at, -> { order_by(created_at: :desc) }
+  scope :search, -> (value) { where("$text" => { 
+    "$search" => value }) if value.present? }
 end

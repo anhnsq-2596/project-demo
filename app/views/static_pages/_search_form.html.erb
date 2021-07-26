@@ -1,0 +1,13 @@
+<%= form_for(:search, url: root_path, method: :get) do |f| %>
+  <div class="row">
+    <div class="col-md-9">
+      <%= f.text_field :search, name: :search,
+        placeholder: t("static_pages.home.search_placeholder"),
+        class: "form-control" %>  
+    </div>
+    <div class="col-md-3">
+      <%= f.submit t("static_pages.home.search"), name: nil,
+        class: "btn btn-primary form-control" %>
+    </div>
+  </div>
+<% end %>
