@@ -165,10 +165,6 @@ test:
   options:
     raise_not_found_error: false
 production:
-  clients:
+  sessions:
     default:
-      database: project_demo_production
-      hosts:
-        - mongodb+srv://nsqa:1@cluster0.aybxh.mongodb.net/project_demo_production?retryWrites=true&w=majority
-      username: nsqa
-      password: 1
+      uri: <%= ENV['MONGO_ATLAS_URI'] %>
