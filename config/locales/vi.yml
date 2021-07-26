@@ -6,6 +6,7 @@ vi:
         password: Mật khẩu
         password_confirmation: Xác nhận mật khẩu
       post:
+        title: Tiêu đề
         content: Nội dung
       tag:
         label: Nhãn
@@ -47,6 +48,8 @@ vi:
   static_pages:
     home:
       cover_text: Đây là trang chủ
+      search: Tìm kiếm
+      search_placeholder: Tìm kiếm theo tiêu đề, nội dung...
     about:
       cover_text: Đây là trang thông tin
   users:

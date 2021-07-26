@@ -56,7 +56,8 @@ RSpec.describe "Posts", type: :request do
         register_and_log_in_as(:user)
       end
       it { expect{ post(posts_path, params: { post: { 
-        content: "test content" }}) }.to change { Post.count }.from(0).to(1) }
+        title: "test title", content: "test content" }}) }
+        .to change { Post.count }.from(0).to(1) }
       it { should redirect_to root_url }
     end
 
@@ -66,7 +67,7 @@ RSpec.describe "Posts", type: :request do
         @tag = create(:tag)
       end
       it { expect{ post(posts_path, params: { post: { 
-        content: "test content" }, tags: [@tag.id] }) }
+        title: "test title", content: "test content" }, tags: [@tag.id] }) }
         .to change { Post.count }.from(0).to(1) }
       it { should redirect_to root_url }
     end
