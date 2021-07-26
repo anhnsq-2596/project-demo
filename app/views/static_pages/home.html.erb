@@ -11,3 +11,8 @@
   <% end %>
   <%= paginate @posts, theme: 'twitter-bootstrap-4' %>
 </div>
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  $('#search_search').val(urlParams.get('search'))
+  $('#search_search').focus()
+</script>
