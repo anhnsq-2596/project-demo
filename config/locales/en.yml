@@ -55,6 +55,9 @@ en:
   users:
     new:
       or: Or
+    show:
+      title: Profile page
+      contact: Contact
   sessions:
     login:
       error: Email or Password is incorrect.

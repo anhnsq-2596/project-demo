@@ -55,6 +55,9 @@ vi:
   users:
     new:
       or: Hoặc
+    show:
+      title: Trang cá nhân
+      contact: Liên hệ
   sessions:
     login:
       error: Email hoặc Mật khẩu không chính xác.

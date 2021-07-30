@@ -49,7 +49,7 @@
 
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
                 <li class="dropdown-item">
-                  <%= link_to t("navbar.title.profile"), "#" %>
+                  <%= link_to t("navbar.title.profile"), user_path(current_user) %>
                 </li>
                 <li class="dropdown-item">
                   <%= link_to t("commons.logout"), logout_path, method: :delete %>

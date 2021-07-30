@@ -1,8 +1,20 @@
 class UsersController < ApplicationController
-  before_action :get_user, only: [:edit, :update, :destroy]
+  before_action :get_user, only: [:edit, :update, :destroy, :show]
 
   def new
     @user = User.new
+  end
+
+  def show
+    if params[:filter].present?
+      tag_ids = Tag.where(label: params[:filter]).pluck(:id)
+      @posts = @user.posts.where(:tag_ids.in => tag_ids).desc_order_by_created_at
+        .page(params[:page])
+    else
+      @posts = @user.posts.search(params[:search]).desc_order_by_created_at
+        .page(params[:page])
+    end
+    @tags = Tag.all
   end
 
   def create
