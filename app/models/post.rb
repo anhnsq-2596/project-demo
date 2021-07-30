@@ -1,5 +1,5 @@
-require "dotenv" if (ENV['RUBY_ENV'] == "development" || 
-  ENV['RUBY_ENV'] == "test")
+require "dotenv" if (ENV["RUBY_ENV"] == "development" || 
+  ENV["RUBY_ENV"] == "test")
 
 class Post
   include Mongoid::Document
