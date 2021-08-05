@@ -1,6 +1,6 @@
 require "rails_helper"
-require "dotenv" if (ENV['RUBY_ENV'] == "development" || 
-  ENV['RUBY_ENV'] == "test")
+require "dotenv" if (ENV["RUBY_ENV"] == "development" || 
+  ENV["RUBY_ENV"] == "test")
 
 RSpec.describe "StaticPages", type: :request do
   describe "GET /" do

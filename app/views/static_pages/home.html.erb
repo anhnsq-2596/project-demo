@@ -3,7 +3,7 @@
    <div class="tag-container">
      <h5><%= t("commons.tag") %></h5>
      <% @tags.each do |tag| %>
-       <%= render "tag", object: tag %>
+       <%= render "shared/tag", object: tag %>
      <% end %>
    </div>
  </div>

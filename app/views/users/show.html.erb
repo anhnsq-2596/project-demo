@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-2">
+    <h4><%= t("users.show.title") %> <%= @user.name %></h4>
+    <p><%= t("users.show.contact") %>: <%= @user.email %></p>
+  </div>
+  <div class="col-md-7">
+    <div class="user-home-container">
+      <div class="mb-5">
+        <%= render "search_form", user: @user %>
+      </div>
+      <% if @posts && !@posts.empty? %>
+        <% @posts.each do |post| %>
+          <%= render "static_pages/post", object: post %>
+        <% end %>
+        <%= paginate @posts, theme: "twitter-bootstrap-4" %>
+      <% else %>
+        <h1><%= t("posts.not_found") %></h1>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-3 tag-wrapper">
+    <div class="">
+      <h5><%= t("commons.tag") %></h5>
+      <% @tags.each do |tag| %>
+        <%= render "shared/tag", object: tag %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("search")) {
+      $("#search_search").val(urlParams.get("search"));
+      $("#search_search").focus();
+    }
+    tag_clicked = $("a").filter(function() {
+      return $(this).text() === urlParams.get("filter")
+    });
+    tag_clicked.removeClass("bg-warning");
+    tag_clicked.addClass("bg-primary text-white");
+  })
+</script>

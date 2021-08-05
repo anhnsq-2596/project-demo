@@ -4,7 +4,7 @@
       <div>
         <span><b><%= t("commons.tag") %></b>:&nbsp;&nbsp;&nbsp;</span>
         <% object.tags.each do |tag| %>
-          <%= render "static_pages/tag", object: tag %>
+          <%= render "shared/tag", object: tag %>
         <% end %>
       </div>
     <% end %>
