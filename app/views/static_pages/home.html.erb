@@ -30,7 +30,9 @@
       $("#search_search").val(urlParams.get("search"));
       $("#search_search").focus();
     }
-    tag_clicked = $(`a:contains(${urlParams.get("filter")})`);
+    tag_clicked = $("a").filter(function() {
+      return $(this).text() === urlParams.get("filter")
+    });
     tag_clicked.removeClass("bg-warning");
     tag_clicked.addClass("bg-primary text-white");
   })
